@@ -19,7 +19,7 @@ ListView 支持与它可以通过以下方式提供的数据进行交互：
 
 - [**选择和分流**](#selectiontaps) &ndash;响应分流和项的选择/取消选择。 启用或禁用行选择 （默认情况下启用）。
 - [**上下文操作**](#Context_Actions) &ndash;公开功能每个项，例如，--删除轻扫。
-- [**请求刷新**](#Pull_to_Refresh) &ndash;实现用户希望从本机的体验的请求刷新惯用语法。
+- [**下拉刷新**](#Pull_to_Refresh) &ndash;实现用户希望从本机的体验的请求刷新惯用语法。
 
 <a name="selectiontaps" />
 
@@ -70,8 +70,8 @@ SelectionDemoList.ItemSelected += (sender, e) => {
 
 在任何情况下，可实现上下文操作`Cell`子类 （只要它未被使用作为组标头） 通过创建`MenuItem`s 并将它们添加到`ContextActions`单元格的集合。 可以使用以下属性可以配置为上下文操作：
 
-* **文本**&ndash;将显示在菜单项的字符串。
-* **单击**&ndash;单击项时的事件。
+* **Text**&ndash;将显示在菜单项的字符串。
+* **Clicked**&ndash;单击项时的事件。
 * **IsDestructive** &ndash; （可选） 为 true 时呈现的项是以不同方式在 iOS 上。
 
 多个上下文操作可以添加到单元格，，但是只有一个应有`IsDestructive`设置为`true`。 下面的代码演示如何上下文操作将添加到`ViewCell`:
@@ -135,7 +135,7 @@ public void OnDelete (object sender, EventArgs e) {
 
 <a name="Pull_to_Refresh" />
 
-## <a name="pull-to-refresh"></a>拉取到刷新
+## <a name="pull-to-refresh"></a>下拉刷新
 用户希望向下拉动数据的列表将刷新该列表。 `ListView` 支持此现成的-可用。 若要启用请求刷新功能，请设置`IsPullToRefreshEnabled`为 true:
 
 ```csharp
